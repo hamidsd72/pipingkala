@@ -242,6 +242,7 @@ class ProductController extends Controller
             return redirect()->route('product-list')->with('flash_message', 'محصول با موفقیت افزوده شد.');
 
         } catch (\Exception $e) {
+         dd($e);
             return redirect()->back()->withInput()->with('err_message', 'خطا در افزودن محصول, لطفا مجددا امتحان کنید');;
         }
     }
@@ -257,7 +258,7 @@ class ProductController extends Controller
         $attributejoins = AttributeProductJoin::where('product_id', $id)->get();
         $comparejoins = ComparisonProductJoin::where('product_id', $id)->get();
         $prices = Price::where('product_id', $id)->get();
-//        $values=$prices->where('product_id',$id)->get();
+        //        $values=$prices->where('product_id',$id)->get();
 
         $types = Type::all();
         if (count($types)) {
@@ -322,7 +323,7 @@ class ProductController extends Controller
             $product->country = $request->country;
             $product->title = $request->title;
             $product->unit = $request->unit;
-$product->status = 1;
+            $product->status = 1;
             $product->title_en = $request->title_en;
             $product->slug = $request->slug;
             $product->size = $request->size;
@@ -330,17 +331,17 @@ $product->status = 1;
             $product->number = $request->number;
             $product->value = $request->value;
             $product->description = $request->description;
-//            $product->phisical_text = $request->phisical_text;
-//            $product->other_job = $request->other_job;
-//            $product->inventory = $request->inventory;
-//     
-//            $product->price_store = $request->price_store;
-//            $product->price_user = $request->price_user;
-//            $product->price_vip = $request->price_vip;
+            //            $product->phisical_text = $request->phisical_text;
+            //            $product->other_job = $request->other_job;
+            //            $product->inventory = $request->inventory;
+            //     
+            //            $product->price_store = $request->price_store;
+            //            $product->price_user = $request->price_user;
+            //            $product->price_vip = $request->price_vip;
             $product->off = $request->off;
             $product->vip = $request->vip;
-//            $product->incredible = $request->incredible;
-//        $product->vip_info = $request->vip_info;
+            //            $product->incredible = $request->incredible;
+            //        $product->vip_info = $request->vip_info;
             $product->tables = $request->tables;
             $product->likes = $request->likes;
             $product->articles = $request->articles;
@@ -390,12 +391,7 @@ $product->status = 1;
 
 
             if ($request->hasFile('photo')) {
-                if ($product->photo) {
-                    foreach ($product->photo as $pic) {
-                        File::delete($pic->path);
-                        $pic->delete();
-                    }
-                }
+//             
                 foreach ($request->photo as $pic) {
                     $photo = new Photo();
                     $photo->path = file_store($pic, 'source/assets/uploads/products/' . my_jdate(date('Y/m/d'), 'Y-m-d') . '/photos/', 'photo-');;

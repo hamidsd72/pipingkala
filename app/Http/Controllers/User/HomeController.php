@@ -634,14 +634,14 @@ class HomeController extends Controller
 
         $product = Product::where('slug', $slug)->first();
         $models=Models::where('product_id',$product->id)->get();
-//        $products =Product::whereRaw("MATCH(title,description,phisical_text) AGAINST(? IN BOOLEAN MODE)", array($request->get('search')))->paginate(15);
+        //        $products =Product::whereRaw("MATCH(title,description,phisical_text) AGAINST(? IN BOOLEAN MODE)", array($request->get('search')))->paginate(15);
         $pricemax = Models::where('product_id',$product->id)->max('price');
         $pricemin = Models::where('product_id',$product->id)->min('price');
         $price1 = intval($pricemax);
         $price2 = intval($pricemin);
         $price3 = intval($pricemax);
         $price4 = intval($pricemin);
-//        $products = Product::search($request->get('search'))->paginate(20);
+        //        $products = Product::search($request->get('search'))->paginate(20);
         $model = Models::where('product_id', $product->id)->whereBetween('price', [$request->min_price-1, $request->max_peice+1])->get();
 
 
@@ -814,9 +814,8 @@ class HomeController extends Controller
         return view('products.search', compact('titlt_page','model', 'price1','price2','filter','search'));
 
     }
-    public function product($slug)
 
-    {
+    public function product($slug) {
         $titlt_page = $slug;
         $product = Product::where('status', 1)->where('slug', $slug)->first();
         $model=Models::where('product_id',$product->id)->get();
@@ -974,6 +973,7 @@ class HomeController extends Controller
         return view('products.p_show', compact('titlt_page','price3','price4','filter','product_tags','model','category', 'product', 'rate', 'count', 'comments', 'baskets', 'products', 'compares', 'visits', 'similars', 'articles', 'labels','price1','price2'));
 
     }
+
     public function product_brand($id,$cat)
     {
         $product = Product::where('status', 1)->where('brand_id', $id)->where('category_id',$cat)->first();
@@ -1003,7 +1003,7 @@ class HomeController extends Controller
 
         $rates = Prate::where('product_id', $product->id)->get();
 
-//        $products = Product::where('status', 1)->where('category_id', $product->category_id)->where('slug', '!=', $slug)->get();
+        //        $products = Product::where('status', 1)->where('category_id', $product->category_id)->where('slug', '!=', $slug)->get();
 
         $comments = Comment::where('status', 1)->where('product_id', $product->id)->get();
 
@@ -1277,7 +1277,7 @@ class HomeController extends Controller
     {
         $products = Product::where('category_id', $id)->where('status', 1)->orderBy('created_at', 'desc')->get();
         return view('search', ['products' => $products]);
-//        var_dump($products);
+        //        var_dump($products);
     }
 
     public function search(Request $request)

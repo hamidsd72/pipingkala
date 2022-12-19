@@ -1,6 +1,8 @@
 @component('layouts.back')
 
-    @slot('title') ویرایش {{ $title }} @endslot
+    @slot('title')
+        ویرایش {{ $title }}
+    @endslot
 
     @slot('body')
 
@@ -84,7 +86,7 @@
                                 <select name="category_id" id="category_id" class="form-control">
                                     @foreach($categories as $cats)
                                         <?php
-                                        $cat1=App\Category::where('parent_id',$cats->id)->get();
+                                        $cat1 = App\Category::where('parent_id', $cats->id)->get();
                                         ?>
                                         @if(count($cat1)<1)
                                             <option {{$cats->id==$item->category_id ? 'selected' : ''}} value="{{$cats->id}}">{{$cats->name}}</option>
@@ -357,10 +359,10 @@
                                             <select name="type[]" id="type[]" class="form-control typeeee">
                                                 <option value="">نوع محصول را انتخاب کنید</option>
                                                 @foreach($types as $type)
-                                                <option value="{{$type->id}}">{{$type->type}}</option>
-                                                    @endforeach
+                                                    <option value="{{$type->id}}">{{$type->type}}</option>
+                                                @endforeach
                                             </select>
-{{--                                            {{ Form::select('type[]', array_pluck($types, 'type', 'id'), $price->type, array('class' => 'form-control typeeee')) }}--}}
+                                            {{--                                            {{ Form::select('type[]', array_pluck($types, 'type', 'id'), $price->type, array('class' => 'form-control typeeee')) }}--}}
 
                                         </div>
 
@@ -381,9 +383,9 @@
 
                                         </div>
                                         <div class="col-md-6">
-                                        {{ Form::label('brand_id', 'برند') }}
+                                            {{ Form::label('brand_id', 'برند') }}
 
-                                        {{ Form::select('brand_id', array_pluck($brands, 'brand', 'id'), $item->brand_id, array('class' => 'form-control')) }}
+                                            {{ Form::select('brand_id', array_pluck($brands, 'brand', 'id'), $item->brand_id, array('class' => 'form-control')) }}
 
                                         </div>
                                         <div class="col-md-6">
@@ -405,7 +407,7 @@
                                         <div class="col-md-4">
 
                                             {{--<a href="{{route('product-type-del',$price->id)}}" class="btn btn-danger"--}}
-                                               {{--onclick="return confirm('آیا مطمئن هستید؟')">حذف</a>--}}
+                                            {{--onclick="return confirm('آیا مطمئن هستید؟')">حذف</a>--}}
 
                                         </div>
 
@@ -541,28 +543,6 @@
 
                         </div>
 
-                        <div class="form-group gallery" style="border: 1px solid #00000036; margin-top: 10px;">
-
-                            <div class="col-md-12" style="margin-top: 10px;">
-
-                                {{ Form::label('pic', 'تصویر شاخص') }}
-
-                                {{ Form::file('pic', array('accept' => 'image/*')) }}
-
-                            </div>
-
-                            <a class="gal" title="افزودن گالری" style="float: left;"><i class="fa fa-plus"
-                                                                                        style="font-size:32px;color:green; cursor: pointer;"></i></a>
-
-                            <div class="col-md-6" style="margin-top: 10px;">
-
-                                {{ Form::label('photo[]', 'گالری') }}
-
-                                {{ Form::file('photo[]', array('accept' => 'image/*')) }}
-
-                            </div>
-
-                        </div>
 
                         <div class="col-md-12" hidden>
 
@@ -599,6 +579,45 @@
                             </div>
 
                         </div>
+
+
+                        <div class="form-group gallery" style="border: 1px solid #00000036; margin-top: 10px;">
+
+                            <div class="col-md-12" style="margin-top: 10px;">
+
+                                {{ Form::label('pic', 'تصویر شاخص') }}
+
+                                {{ Form::file('pic', array('accept' => 'image/*')) }}
+
+                            </div>
+
+                            <a class="gal" title="افزودن گالری" style="float: left;"><i class="fa fa-plus"
+                                                                                        style="font-size:32px;color:green; cursor: pointer;"></i></a>
+
+                            <div class="col-md-6" style="margin-top: 10px;">
+
+                                {{ Form::label('photo[]', 'گالری') }}
+
+                                {{ Form::file('photo[]', array('accept' => 'image/*','multiple')) }}
+
+                            </div>
+
+                            @if($item->photo && $item->photo->count() > 0)
+                                <div class="row mt-2">
+
+                                    @foreach($item->photo as $item)
+                                        <div class="col-md-3 col-xs-6 text-center">
+                                            <img src="{{url($item->path)}}" width="200" height="100" style="object-fit: cover">
+                                            <a href="{{route('photo.destroy',$item->id)}}" class="btn btn-danger btn-sm mt-1">
+                                                <i class="fa fa-trash"></i>
+                                            حذف
+                                            </a>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            @endif
+                        </div>
+
 
                     </div>
 
@@ -656,12 +675,12 @@
 
                     '{{ Form::label('type_type', '&#1606;&#1608;&#1593;') }}' +
 
-                    '<select name="type[]" id="type[]" class="form-control typeeee">'+
-                    '<option value="">نوع محصول را انتخاب کنید</option>'+
-                '@foreach($types as $type)'+
-                '<option value="{{$type->id}}">{{$type->type}}</option>'+
-                        '@endforeach'+
-                    '</select>'+
+                    '<select name="type[]" id="type[]" class="form-control typeeee">' +
+                    '<option value="">نوع محصول را انتخاب کنید</option>' +
+                    '@foreach($types as $type)' +
+                    '<option value="{{$type->id}}">{{$type->type}}</option>' +
+                    '@endforeach' +
+                    '</select>' +
 
                     '</div>' +
 
@@ -710,7 +729,7 @@
 
                             $.each(data, function (key, val) {
 
-                                var option = "<option value="+ val +">" + val + "</option>";
+                                var option = "<option value=" + val + ">" + val + "</option>";
                                 $('.valueeee').append(option);
                             })
                         }

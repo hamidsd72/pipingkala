@@ -11,21 +11,21 @@ $set=App\Setting::find(1);
     <link rel="canonical" href="http://iioco.co"/>
     <meta property="og:type" content="ecommerce"/>
     <meta property="og:title" content="<?php echo e($set->title); ?>"/>
-        <?php $__currentLoopData = explode("،",$set->keywords); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key125): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-            <meta name="keywords" content="<?php echo e($key125); ?>">
-        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+    <?php $__currentLoopData = explode("،",$set->keywords); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key125): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <meta name="keywords" content="<?php echo e($key125); ?>">
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     <meta property="og:description" content="<?php echo e($set->description); ?> "/>
     <meta property="og:image" content="<?php echo e(url($set->about_pic)); ?>"/>
     <meta property="og:url" content="http://iioco.co"/>
     <meta property="og:site_name" content="<?php echo e($set->title); ?>"/>
     <meta name="revisit-after" content="7 days"/>
     <meta id="csrf" name="csrf-token" content="<?php echo e(csrf_token()); ?>">
-    <!-- SEO Meta Tags-->
+    <!-- SEO Meta Tags -->
     <meta name="description" content="<?php echo e($set->description); ?>">
     <?php $__currentLoopData = explode("،",$set->keywords); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key125): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         <meta name="keywords" content="<?php echo e($key125); ?>">
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4774264488206253" crossorigin="anonymous"></script>
     
     <!-- Mobile Specific Meta Tag-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -46,8 +46,20 @@ $set=App\Setting::find(1);
     <!-- Modernizr-->
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('source/assets/css/jgrowl.min.css')); ?>"/>
     <script src="<?php echo e(asset('source/assets/shop/js/document.min.js')); ?>"></script>
-    <?php echo $__env->yieldContent('css'); ?>
-    <style>
+
+
+    <!-- product slider -->
+    <link rel='stylesheet' href="<?php echo e(asset('source/assets/css/slick.css')); ?>">
+    <link rel='stylesheet' href="<?php echo e(asset('source/assets/css/jquery.fancybox.min.css')); ?>">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="<?php echo e(asset('source/assets/js/popper.min.js')); ?>"></script>
+    <script src="<?php echo e(asset('source/assets/js/slick.min.js')); ?>"></script>
+    <script src="<?php echo e(asset('source/assets/js/jquery.fancybox.min.js')); ?>"></script>
+    <script id="rendered-js">
+
+        <?php echo $__env->yieldContent('css'); ?>
+        <style>
         .btn-outline-secondary
         {
             padding: 13px!important;
@@ -139,11 +151,11 @@ $set=App\Setting::find(1);
 
         @keyframes  move {
             from {
-                transform: translateY(0vh);
-            }
+            transform: translateY(0vh);
+        }
             to {
-                transform: translateY(-20vh);
-            }
+            transform: translateY(-20vh);
+        }
         }
 
         .social-button
@@ -170,30 +182,30 @@ $set=App\Setting::find(1);
         @media (min-width: 1200px)
         {
             .uk-grid {
-                margin-left: unset!important;
-            }
+            margin-left: unset!important;
         }
-            .uk-grid {
-                 margin-left: unset!important;
-            }
+        }
+        .uk-grid {
+            margin-left: unset!important;
+        }
         @media (min-width: 1200px)
         {
             .uk-grid>* {
-                padding-left: 10px!important;
-            }
+            padding-left: 10px!important;
+        }
         }
 
-            .uk-grid>* {
-                 padding-left: 10px!important;
-            }
+        .uk-grid>* {
+            padding-left: 10px!important;
+        }
         .uk-modal-dialog{
             width: 70%;
             text-align: right;
         }
-    </style>
+        </style>
     <!---begin GOFTINO code--->
-    <script type="text/javascript">
-        !function(){function g(){var g=document.createElement("script"),s="https://www.goftino.com/widget/BJrsaI";g.type="text/javascript", g.async=!0,g.src=localStorage.getItem("goftino")?s+"?o="+localStorage.getItem("goftino"):s;var e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(g, e);}
+        <script type="text/javascript">
+            !function(){function g(){var g=document.createElement("script"),s="https://www.goftino.com/widget/BJrsaI";g.type="text/javascript", g.async=!0,g.src=localStorage.getItem("goftino")?s+"?o="+localStorage.getItem("goftino"):s;var e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(g, e);}
             var a = window;"complete" === document.readyState ? g() : a.attachEvent ? a.attachEvent("onload", g) : a.addEventListener("load", g, !1);}();
     </script>
     <!---end GOFTINO code--->
@@ -284,8 +296,8 @@ $set=App\Setting::find(1);
 
                 </span>
                     <!--                --><?php
-                    //                $child=App\ProductCategory::where('parent_id',$category->id)->get();
-                    //                ?>
+                                               //                $child=App\ProductCategory::where('parent_id',$category->id)->get();
+                                               //                ?>
                     <?php if(!empty($category->children)): ?>
                         <?php if(count($category->children)): ?>
                             <ul class="offcanvas-submenu">
@@ -310,12 +322,12 @@ $set=App\Setting::find(1);
     <a class="account-link" <?php if(Auth::check()): ?> href="/panel" <?php else: ?> href="#" data-toggle="modal" data-target="#modalLogin" <?php endif; ?> >
         <div class="user-ava"><img src="<?php echo e(asset('source/assets/shop/img/man.png')); ?>" alt="Daniel Adams"></div>
         <div class="user-info">
-                <?php if(Auth::check()): ?>
-                    <span style="color: white"><?php echo e(Auth::user()->first_name . ' ' . Auth::user()->last_name); ?></span>
-                <?php else: ?>
-                    <span style="color: white">ورود / عضویت</span>
+            <?php if(Auth::check()): ?>
+                <span style="color: white"><?php echo e(Auth::user()->first_name . ' ' . Auth::user()->last_name); ?></span>
+            <?php else: ?>
+                <span style="color: white">ورود / عضویت</span>
 
-                <?php endif; ?>
+            <?php endif; ?>
         </div>
     </a>
     <nav class="offcanvas-menu">
@@ -334,9 +346,9 @@ $set=App\Setting::find(1);
                     <?php endif; ?>
 
                 </span>
-                    <?php
-                    $child=App\Category::where('parent_id',$category->id)->orderby('sort_id','asc')->get();
-                    ?>
+                        <?php
+                        $child=App\Category::where('parent_id',$category->id)->orderby('sort_id','asc')->get();
+                        ?>
                     <?php if(!empty($child)): ?>
                         <?php if(count($child)): ?>
                             <ul class="offcanvas-submenu">
@@ -360,7 +372,7 @@ $set=App\Setting::find(1);
 <?php
 $aboutss=App\About::find(3);
 ?>
-<!-- Topbar-->
+        <!-- Topbar-->
 <a class="to_top" href="#" uk-totop uk-scroll></a>
 
 
@@ -410,34 +422,38 @@ $aboutss=App\About::find(3);
             </ul>
         </div>
         
-            
         
         
-            
-        
-        
-            
-        
-        
-            
-        
-        
-            
-        
+
+
+
+
+
+
+
+
+
+
+
+
         <!-- Toolbar-->
         <div class="toolbar">
             <div class="inner">
                 <span class="uk-visible@m">تلفن (شرکت) : ۸۶ – ۰۲۱۶۵۰۱۰۲۸۵  </span>
                 <a  class="social-button shape-circle sb-facebook sb-light-skin uk-visible@m" href="http://www.facebook.com/."><i style="font-size: 13px" class="socicon-facebook"></i></a>
+                <a  class="social-button shape-circle sb-whatsapp sb-light-skin uk-visible@m" href="http://www.whatsapp.com/"><i style="font-size: 13px" class="socicon-whatsapp"></i></a>
                 <a  class="social-button shape-circle sb-instagram sb-light-skin uk-visible@m" href="https://www.instagram.com/"><i style="font-size: 13px" class="socicon-instagram"></i></a>
                 <div class="tools">
                     <div id="clockbox" class="uk-visible@m" style="    font: normal 11px verdana;color: #333; float: right; margin-top: 4px;margin-left: 20px;background: #11DDBF;padding: 8px; border-radius: 20px;">12:50:24 PM</div>
                     <form class="uk-search uk-search-default"  action="<?php echo e(route('search-box')); ?>" method="get">
-                            <button class="uk-search-icon" type="submit">جستجو</button>
-                            <input class="uk-search-input" type="search" name="text" placeholder="" required oninvalid="this.setCustomValidity('دنبال چه میگردید؟؟؟')"
-                                   oninput="setCustomValidity('')">
-
-                        </form>
+                        <button class="uk-search-icon" type="submit">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                            </svg>
+                        </button>
+                        <input class="uk-search-input" type="search" name="text" placeholder="" required oninvalid="this.setCustomValidity('دنبال چه میگردید؟؟؟')"
+                               oninput="setCustomValidity('')">
+                    </form>
                     <script type="text/javascript">
                         tday  =new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
                         tmonth=new Array("January","February","March","April","May","June","July","August","September","October","November","December");
@@ -495,7 +511,7 @@ $aboutss=App\About::find(3);
 
                                 <li><a href="#" data-toggle="modal" data-target="#modalLogin"><i
                                                 class="icon-unlock"></i>ورود/عضویت
-                                        </a></li>
+                                    </a></li>
                             <?php endif; ?>
                         </ul>
                     </div>
@@ -504,29 +520,29 @@ $aboutss=App\About::find(3);
                     ?>
 
                     <?php $__currentLoopData = $basket_count; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <?php if(! is_null($value->model)): ?>
-                        <?php $all_price += $value->price * $value->num ?>
+                        <?php if($value->model&&$value->model->count()): ?>
+                            <?php $all_price += $value->price * $value->num ?>
                         <?php endif; ?>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     <div class="cart"><a href="<?php echo e(route('basket')); ?>"></a><i class="icon-bag"></i><span
                                 class="count"><?php echo e(count($basket_count)); ?></span><span
                                 class="subtotal"><span class="numberPrice" style="color: white"><?php echo e($all_price); ?></span> تومان</span>
                         <div class="toolbar-dropdown">
-                            <?php if(! is_null($basket_count)): ?>
-                            <?php $__currentLoopData = $basket_count; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <?php if(! is_null($value->model)): ?>
-                                <div class="dropdown-product-item"><span class="dropdown-product-remove"></span>
-                                    <a class="dropdown-product-thumb" href="#">
-                                        <img src="<?php echo e(url($value->product->pic!=null?$value->product->pic : $value->product->photo[0]->path)); ?>" alt="عکس محصول">
+                            <?php if(count($basket_count)): ?>
+                                <?php $__currentLoopData = $basket_count; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <?php if($value->model&&$value->model->count()): ?>
+                                        <div class="dropdown-product-item"><span class="dropdown-product-remove"></span>
+                                            <a class="dropdown-product-thumb" href="#">
+                                                <img src="<?php echo e(url($value->product->pic!=null?$value->product->pic : $value->product->photo[0]->path)); ?>" alt="عکس محصول">
 
-                                    </a>
-                                    <div class="dropdown-product-info"><a class="dropdown-product-title"
-                                                                          href="#"><?php echo e($value->product->title." مدل :  ".$value->model->name); ?></a><span
-                                                class="dropdown-product-details"><span class="numberPrice"><?php echo e($value->price); ?></span> تومان</span> <span
-                                                class="dropdown-product-details"> - <?php echo e($value->num); ?></span></div>
-                                </div>
+                                            </a>
+                                            <div class="dropdown-product-info"><a class="dropdown-product-title"
+                                                                                  href="#"><?php echo e($value->product->title." مدل :  ".$value->model->name); ?></a><span
+                                                        class="dropdown-product-details"><span class="numberPrice"><?php echo e($value->price); ?></span> تومان</span> <span
+                                                        class="dropdown-product-details"> - <?php echo e($value->num); ?></span></div>
+                                        </div>
                                     <?php endif; ?>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             <?php endif; ?>
                             <div class="toolbar-dropdown-group">
                                 <div class="column"><a class="btn btn-sm btn-block btn-secondary uk-text-center"
@@ -548,22 +564,22 @@ $aboutss=App\About::find(3);
 <!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page.-->
 <!-- search -->
 
-    
-
-                
-                    
-                    
-                        
-                    
-                
-
-                
 
 
 
 
-       
-    
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -584,7 +600,7 @@ $aboutss=App\About::find(3);
             <!-- Off-Canvas Toggle (#mobile-menu)--><a class="offcanvas-toggle menu-toggle " href="#mobile-menu"
                                                        data-toggle="offcanvas"></a>
             <!-- Site Logo--><a class="site-logo" href="<?php echo e(url('/')); ?>"><img
-                        src="<?php echo e(asset('source/assets/logo.png')); ?>" alt="TopShop"></a>
+                        src="<?php echo e(asset('source/assets/logo.png?v2')); ?>" alt="TopShop"></a>
         </div>
     </div>
 
@@ -592,6 +608,12 @@ $aboutss=App\About::find(3);
     <nav class="site-menu">
         <ul>
             <li class="<?php echo e((\Request::route()->getName() == 'home') ? 'active' : ''); ?> "><a href="<?php echo e(route('home')); ?>"><span><i style="background: unset!important;" uk-icon="home"></i> خانه </span></a></li>
+            <li class="<?php echo e((\Request::route()->getName() == 'articles') ? 'active' : ''); ?> "><a href="<?php echo e(route('articles')); ?>">
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-journals" viewBox="0 0 16 16">                               <path d="M5 0h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2 2 2 0 0 1-2 2H3a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1H1a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1H3a2 2 0 0 1 2-2z"/>                               <path d="M1 6v-.5a.5.5 0 0 1 1 0V6h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V9h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 2.5v.5H.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1H2v-.5a.5.5 0 0 0-1 0z"/>                             </svg>
+               مقالات </span>
+                </a>
+            </li>
 
             <?php
             $categori=App\Category::where('parent_id', null)->orderBy('sort_id', 'asc')->get();
@@ -677,156 +699,165 @@ $aboutss=App\About::find(3);
 
 
 
-    <!-- Site Footer-->
-    <footer class="site-footer" style="padding-top: 25px;padding-bottom: 5px;box-shadow: 0 2px 2px 2px #d6d6d6">
-        <div class="">
-            <div class="uk-grid" style="padding: 0 40px">
-                <div class="uk-width-1-4@l uk-width-1-4@m uk-width-1-2@s" style="padding-left: 25px!important;margin-top: 20px">
-                    <!-- About Us-->
-                    <section class="widget widget-links widget-light-skin">
-                        <h3 class="widget-title">صفحات</h3>
-                        <ul>
-                            <li><a href="<?php echo e(route('news_all')); ?>"><i uk-icon="chevron-left" style="background: unset!important;"></i> اخبار</a></li>
-                            <li><a href="<?php echo e(route('articles')); ?>"><i uk-icon="chevron-left" style="background: unset!important;"></i> مقالات  </a></li>
-                            <li><a href="<?php echo e(route('contact-us')); ?>"><i uk-icon="chevron-left" style="background: unset!important;"></i> تماس با ما </a></li>
-                            <li><a href="<?php echo e(route('about-us',1)); ?>"><i uk-icon="chevron-left" style="background: unset!important;"></i> درباره ما </a></li>
-                            <li><a href="<?php echo e(route('employment_show')); ?>"><i uk-icon="chevron-left" style="background: unset!important;"></i> فرم درخواست همکاری </a></li>
-                            <li><a href="<?php echo e(route('gallerys_photo')); ?>"><i uk-icon="chevron-left" style="background: unset!important;"></i> گالری تصاویر </a></li>
-                            <li><a href="<?php echo e(route('gallerys_videos')); ?>"><i uk-icon="chevron-left" style="background: unset!important;"></i> ویدئوها </a></li>
+<!-- Site Footer-->
+<footer class="site-footer" style="padding-top: 25px;padding-bottom: 5px;box-shadow: 0 2px 2px 2px #d6d6d6">
+    <div class="">
+        <div class="uk-grid" style="padding: 0 40px">
+            <div class="uk-width-1-4@l uk-width-1-4@m uk-width-1-2@s" style="padding-left: 25px!important;margin-top: 20px">
+                <!-- About Us-->
+                <section class="widget widget-links widget-light-skin">
+                    <h3 class="widget-title">صفحات</h3>
+                    <ul>
+                        <li><a href="<?php echo e(route('news_all')); ?>"><i uk-icon="chevron-left" style="background: unset!important;"></i> اخبار</a></li>
+                        <li><a href="<?php echo e(route('articles')); ?>"><i uk-icon="chevron-left" style="background: unset!important;"></i> مقالات  </a></li>
+                        <li><a href="<?php echo e(route('contact-us')); ?>"><i uk-icon="chevron-left" style="background: unset!important;"></i> تماس با ما </a></li>
+                        <li><a href="<?php echo e(route('about-us',1)); ?>"><i uk-icon="chevron-left" style="background: unset!important;"></i> درباره ما </a></li>
+                        <li><a href="<?php echo e(route('employment_show')); ?>"><i uk-icon="chevron-left" style="background: unset!important;"></i> فرم درخواست همکاری </a></li>
+                        <li><a href="<?php echo e(route('gallerys_photo')); ?>"><i uk-icon="chevron-left" style="background: unset!important;"></i> گالری تصاویر </a></li>
+                        <li><a href="<?php echo e(route('gallerys_videos')); ?>"><i uk-icon="chevron-left" style="background: unset!important;"></i> ویدئوها </a></li>
 
 
-                        </ul>
-                    </section>
+                    </ul>
+                </section>
+            </div>
+
+            <div class="uk-width-1-4@l uk-width-1-4@m uk-width-1-2@s" style="padding-left: 25px!important;margin-top: 20px">
+                <!-- Mobile App Buttons-->
+                <section class="widget widget-links widget-light-skin">
+                    <h3 class="widget-title">صفحات جانبی</h3>
+
+                    <ul>
+                        <li><a href="<?php echo e(route('complaint')); ?>"><i uk-icon="chevron-left" style="background: unset!important;"></i> ثبت شکایات</a></li>
+                        <?php $__currentLoopData = App\Footer::all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
+                            <li><a href="<?php echo e(route('static' , $value->slug)); ?>"><i uk-icon="chevron-left" style="background: unset!important;"></i> <?php echo e($value->title); ?></a></li>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+                    </ul>
+
+
+                </section>
+            </div>
+            <div class="uk-width-1-4@l uk-width-1-4@m uk-width-1-2@s" style="padding-left: 15px!important;margin-top: 20px">
+                <!-- Contact Info-->
+                <section class="widget widget-light-skin">
+                    <h3 class="widget-title">ارتباط با ما</h3>
+                    <p style="font-size: 12px">تهران، خیابان آزادی، حد فاصل نواب و اسکندری، پلاک ۱۸۶، مجتمع اداری پانامال، طبقۀ ۴، واحد 408
+                    </p>
+                    <p style="font-size: 12px">تلفن (شرکت) :  ۸۶ – ۰۲۱۶۵۰۱۰۲۸۵ </p>
+                    <p style="font-size: 12px">ایمیل : info@iioco.co
+                    </p>
+                    <p style="font-size: 12px">شبکه های اجتماعی  : ۰۹۱۲۰۱۲۰۴۶۶ </a>
+                    </p>
+
+
+                </section>
+            </div>
+            <div class="uk-width-1-4@l uk-width-1-4@m uk-width-1-2@s" style="padding-left: 15px!important;margin-top: 20px">
+                <!-- Contact Info-->
+                <section class="widget widget-light-skin">
+                    <h3 class="widget-title">شبکه های اجتماعی</h3>
+                    <a style="background-color: #11ddbf;line-height: 1.1;padding-right: 2px;" class="social-button shape-circle sb-facebook sb-light-skin uk-visible@m" href="http://www.facebook.com/."><i style="font-size: 13px" class="socicon-facebook"></i></a>
+                    <a style="background-color: #11ddbf;line-height: 2.5;padding-right: 1px;" class="social-button shape-circle sb-whatsapp sb-light-skin uk-visible@m" href="http://www.whatsapp.com/"><i style="font-size: 13px" class="socicon-whatsapp"></i></a>
+                    <a style="background-color: #11ddbf;line-height: 1.1;padding-right: 2px;" class="social-button shape-circle sb-instagram sb-light-skin uk-visible@m" href="https://www.instagram.com/"><i style="font-size: 13px" class="socicon-instagram"></i></a>
+                </section>
+            </div>
+            <style>
+                .class_uk_form{
+                    width: 75%!important;
+                }
+                .class_uk_form .class_uk_input
+                {
+                    height: 40px!important;
+                    border-radius: 5px!important;
+                }
+                .class_uk_form .class_uk_button{
+                    height: 38px!important;
+                    border-radius: 5px 0 0 5px;
+                    padding: 0 30px!important;
+                    font-size: 15px!important;
+                }
+            </style>
+
+            <div class="uk-width-1-4@l uk-width-1-4@m uk-width-1-2@s uk-text-center" style="padding-left: 10px!important;margin-top: 20px">
+                <div style="width: 100%;text-align: center;">
                 </div>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
 
-                <div class="uk-width-1-4@l uk-width-1-4@m uk-width-1-2@s" style="padding-left: 25px!important;margin-top: 20px">
-                    <!-- Mobile App Buttons-->
-                    <section class="widget widget-links widget-light-skin">
-                        <h3 class="widget-title">صفحات جانبی</h3>
-
-                        <ul>
-                            <li><a href="<?php echo e(route('complaint')); ?>"><i uk-icon="chevron-left" style="background: unset!important;"></i> ثبت شکایات</a></li>
-                            <?php $__currentLoopData = App\Footer::all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-
-                                <li><a href="<?php echo e(route('static' , $value->slug)); ?>"><i uk-icon="chevron-left" style="background: unset!important;"></i> <?php echo e($value->title); ?></a></li>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-
-                        </ul>
-
-
-                    </section>
-                </div>
-                <div class="uk-width-1-4@l uk-width-1-4@m uk-width-1-2@s" style="padding-left: 15px!important;margin-top: 20px">
-                    <!-- Contact Info-->
-                    <section class="widget widget-light-skin">
-                        <h3 class="widget-title">ارتباط با ما</h3>
-                        <p style="font-size: 12px">تهران، خیابان آزادی، حد فاصل نواب و اسکندری، پلاک ۱۸۶، مجتمع اداری پانامال، طبقۀ ۴، واحد 408
-                        </p>
-                        <p style="font-size: 12px">تلفن (شرکت) :  ۸۶ – ۰۲۱۶۵۰۱۰۲۸۵ </p>
-                        <p style="font-size: 12px">ایمیل : info@iioco.co
-                        </p>
-                        <p style="font-size: 12px">شبکه های اجتماعی  : ۰۹۱۲۰۱۲۰۴۶۶ </a>
-                        </p>
-
-
-                    </section>
-                </div>
-                <style>
-                    .class_uk_form{
-                        width: 75%!important;
-                    }
-                    .class_uk_form .class_uk_input
-                    {
-                        height: 40px!important;
-                        border-radius: 5px!important;
-                    }
-                    .class_uk_form .class_uk_button{
-                        height: 38px!important;
-                        border-radius: 5px 0 0 5px;
-                        padding: 0 30px!important;
-                        font-size: 15px!important;
-                    }
-                </style>
-
-                <div class="uk-width-1-4@l uk-width-1-4@m uk-width-1-2@s uk-text-center" style="padding-left: 10px!important;margin-top: 20px">
-                    <div style="width: 100%;text-align: center;">
-                    </div>
-                    
-                    
-                    
-                        
-                            
-                            
-                            
-                                   
-                        
-                    
-
-                        
+                
 
                 </section>
 
-                </div>
             </div>
+        </div>
 
         
-            
-<!--                --><?php
+        
+        <!--                --><?php
 //                $about=App\About::find(3);
 //                ?>
-                
-                    
-                        
-                        
-                    
-                    
-                        
-                            
-                                
-                                    
-                                
-                            
-                            
-                                
-                                    
-                                
-                            
-                        
-
-                    
-                
-                <!-- Copyright-->
-                <p class="footer-copyright">© کلیه حقوق محفوظ است , طراحی و توسعه توسط &nbsp;<a href="https://adib-it.com/" target="_blank">
-                        &nbsp;ادیب گستر عصر نوین</a></p>
-            
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
 
-
-    </footer>
+        
+        
+        <!-- Copyright-->
+        <p class="footer-copyright">© کلیه حقوق محفوظ است , طراحی و توسعه توسط &nbsp;<a href="https://adib-it.com/" target="_blank">
+                &nbsp;ادیب گستر عصر نوین</a></p>
     
-        
-            
-                
-            
-            
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-            
-                
-                
-
-            
-        
     
+
+
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <div class="site-backdrop"></div>

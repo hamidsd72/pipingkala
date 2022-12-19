@@ -70,6 +70,7 @@ Route::group(['prefix' => 'panel', 'namespace' => 'Panel', 'middleware' => ['aut
     // index
     Route::get('/', 'PanelController@index')->name('index');
 
+    Route::any('photo/{id}/destroy', 'PhotoController@destroy')->name('photo.destroy');
 
     Route::get('status/{id}', 'PanelController@status')->name('status');
 
